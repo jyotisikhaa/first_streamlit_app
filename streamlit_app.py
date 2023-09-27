@@ -1,12 +1,5 @@
-[10:35] Somya Suyasha
-
 import streamlit
-
- 
-
 streamlit.title("My Parents new Healthy Diner")
-
- 
 
 streamlit.header('Breakfast Menu')
 
