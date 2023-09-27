@@ -56,7 +56,7 @@ streamlit.write('The user entered ', fruit_choice)
 
 import requests
 
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" +fruit_choice)
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + "kiwi")
 
  
 # write your own comment -what does the next line do? 
@@ -74,6 +74,6 @@ streamlit.dataframe(fruityvice_normalized)
 
  
 
-import snowflake.connector
+# import snowflake.connector
 
  
