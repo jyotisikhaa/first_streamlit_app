@@ -51,9 +51,9 @@ def get_fruityvice_data(this_fruit_choice):
 
  
 
-# my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-# my_cur = my_cnx.cursor()
-# my_cur.execute("Select * from fruit_load_list")
-# my_data_rows = my_cur.fetchall()
-# streamlit.header("The fruit load list contains:")
-# streamlit.dataframe(my_data_rows)
+my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+my_cur = my_cnx.cursor()
+my_cur.execute("Select * from fruit_load_list")
+my_data_rows = my_cur.fetchall()
+streamlit.header("The fruit load list contains:")
+streamlit.dataframe(my_data_rows)
