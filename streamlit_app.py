@@ -1,7 +1,7 @@
 import streamlit
 
 import pandas
-import requests
+
 from urllib.error import URLError
 
  
@@ -39,22 +39,11 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 #Display the table on the page.
 streamlit.dataframe(fruits_to_show)
 
- 
+import requests
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+streamlit.text(fruityvice_response)
 
  
 
-#create the repeatable code block (called a function)
-def get_fruityvice_data(this_fruit_choice):
-    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + this_fruit_choice)
-    fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-    return fruityvice_normalized
- 
-import snowflake.connector
  
 
-my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-my_cur = my_cnx.cursor()
-my_cur.execute("Select * from fruit_load_list")
-my_data_rows = my_cur.fetchall()
-streamlit.header("The fruit load list contains:")
-streamlit.dataframe(my_data_rows)
